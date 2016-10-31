@@ -12,7 +12,7 @@ api.adiciona = function(req, res) {
 };
 
 api.busca = function(req, res) {
-   db.findOne({_id: req.params.fotoId }, function(err, doc) {
+   db.findOne({_id: req.params.Id }, function(err, doc) {
         if (err) return console.log(err);
         res.json(doc);
     });
@@ -20,7 +20,7 @@ api.busca = function(req, res) {
 
 api.atualiza = function(req, res) {
     
-    db.update({_id : req.params.fotoId }, req.body, function(err, numReplaced) {
+    db.update({_id : req.params.Id }, req.body, function(err, numReplaced) {
         if (err) return console.log(err);
         if(numReplaced) res.status(200).end();
         res.status(500).end();
@@ -30,24 +30,15 @@ api.atualiza = function(req, res) {
 };
 
 api.lista = function(req, res) {
-    db.find({}).sort({titulo: 1}).exec(function(err, doc) {
+    db.find({}).exec(function(err, doc) {
         if (err) return console.log(err);
         res.json(doc);
     });
-};
-
-api.listaPorGrupo = function(req, res) {
-    var grupoId = parseInt(req.params.grupoId);
-    db.find({grupo: grupoId}, function(err, doc) {
-        if (err) return console.log(err);
-        res.json(doc);
-    });
-
 };
 
 api.remove = function(req, res) {
 
-    db.remove({ _id: req.params.fotoId }, {}, function (err, numRemoved) {
+    db.remove({ _id: req.params.frameworkId }, {}, function (err, numRemoved) {
         if (err) return console.log(err);
         console.log('removido com sucesso');
         if(numRemoved) res.status(200).end();
@@ -55,23 +46,34 @@ api.remove = function(req, res) {
     });
 };
 
-api.listaGrupos = function(req, res) {
+api.listaPorTecnologia = function(req, res) {
+    var tecnologiaId = parseInt(req.params.Id);
+    db.find({tecnologia: tecnologiaId}, function(err, doc) {
+        if (err) return console.log(err);
+        res.json(doc);
+    });
+};
+
+api.listaPorTecnologias = function(req, res) {
 
     res.json([
         {
             _id: 1, 
-            nome: 'esporte'
+            nome: 'AngularJS'
         }, 
         { 
             _id: 2, 
-            nome: 'lugares', 
+            nome: 'Bower', 
         }, 
         { 
             _id: 3, 
-            nome: 'animais'
+            nome: 'Gulp'
+        },
+         { 
+            _id: 4, 
+            nome: 'Jasmine'
         }
-    ]);
-        
+    ]);   
 };
 
 

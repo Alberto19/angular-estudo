@@ -3,17 +3,15 @@ var api = require('../api'),
 
 module.exports  = function(app) {
     
-    app.route('/v1/fotos')
-        .post(api.adiciona)
-        .get(api.lista);
+    app.route('/adicionar').post(api.adiciona);
+    app.route('/buscar').get(api.lista);
 
-    app.route('/v1/fotos/:fotoId')
-        .delete(api.remove)
-        .get(api.busca)
-        .put(api.atualiza);
+    app.route('/deletar/:Id').delete(api.remove);
+    app.route('/buscarPorId/:Id').get(api.busca)
+    app.route('/atualizar/:Id').put(api.atualiza);
 
-    app.get('/v1/grupos', api.listaGrupos)
-    app.get('/v1/fotos/grupo/:grupoId', api.listaPorGrupo);
+    app.get('/tecnologias', api.listaPorTecnologias)
+    app.get('/tecnologiasId/:Id', api.listaPorTecnologia);
         
 
     // habilitando HTML5MODE
