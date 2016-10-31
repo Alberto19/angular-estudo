@@ -13,16 +13,17 @@
 	<script src="js/lib/angular-animate.min.js"></script>
 	<script src="js/lib/angular-route.min.js"></script>
 	<script src="js/lib/angular-resource.min.js"></script>
-   <script src="js/controllers/framework-controller.js"></script>
 	<script src="js/main.js"></script>
+   <script src="js/controllers/framework-controller.js"></script>
+
 </head>
 
-<body ng-app="angularApplication">
+<body>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="page-header">
-					<h1>Angular.JS <small>Aplicações Single-Page como voçê nunca viu antes!</small></h1>
+					<h1>Angular.JS <small>AplicacÃµes Single-Page como vocÃª nunca viu antes!</small></h1>
 				</div>
 			</div>
 		</div>
@@ -30,18 +31,13 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="nav nav-tabs">
-					<li role="presentation" class="active"><a href="#">Home</a></li>
-					<li role="presentation"><a href="#">Frameworks</a></li>
+					<li role="presentation" class="active"><a href="/framework">Home</a></li>
+					<li role="presentation"><a href="/framework/adicionar">Frameworks</a></li>
 					<li role="presentation"><a href="livros">Livros</a></li>
 				</ul>
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-md-12">
-				<div ng-show="mensage" class="alert alert-{{mensage.type}}">{{mesage}}</div>
-			</div>
-		</div>
 
 		<ng-view></ng-view>
 	</div>
