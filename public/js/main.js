@@ -1,18 +1,22 @@
-angular.module('main', ['ngAnimate','ngRoute'])
-.config(function($routeProvider, $locationProvider){
+angular
+    .module('main', ['diretivas', 'ngAnimate', 'ngRoute'])
+    .config(function ($routeProvider, $locationProvider) {
 
-    $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
 
-    $routeProvider.when('/framework',{
-        templateUrl: 'partials/404.html',
-        controller: 'FrameworkController'
+      $routeProvider.when('/framework', {
+            templateUrl: 'partials/framework/list.html',
+            controller: 'FrameworksController'
+        });
+        $routeProvider.when('/framework/adicionar', {
+            templateUrl: 'partials/framework/new.html',
+            controller: 'FrameworkController'
+        });
+         $routeProvider.when('/framework/atualizar/:Id', {
+            templateUrl: 'partials/framework/new.html',
+            controller: 'FrameworkController'
+        });
+
+        $routeProvider.otherwise({redirectTo: '/'});
+
     });
-
-    $routeProvider.when('/framework/adicionar',{
-        templateUrl: 'partials/new.html',
-        controller: 'FrameworkController'
-    });
-
-    $routeProvider.otherwise({redirectTo: '/framework'});
-
-});

@@ -21,15 +21,26 @@
             </span>
 		</div>
 		<div class="form-group">
+			<label>Foto URL</label>
+			<input ng-model="framework.foto" name="foto" class="form-control" required>
+			<span ng-show="formulario.$submitted && formulario.foto.$error.required" class="form-control alert-danger">
+                Foto do Framework obrigatório
+            </span>
+		</div>
+		<div class="form-group">
 			<label>Descrição</label>
 			<textarea ng-model="framework.descricao" name="descricao" class="form-control">
             </textarea>
 		</div>
 
+
 		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
             Salvar
         </button>
-		<a href="/" class="btn btn-primary" meu-focus>Voltar</a>
+		<a href="/framework" class="btn btn-primary" meu-focus>Voltar</a>
 		<hr>
+	</div>
+	<div class="col-md-4">
+		<minha-foto url="{{framework.foto}}"></minha-foto>
 	</div>
 </form>
