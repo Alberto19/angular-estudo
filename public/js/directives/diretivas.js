@@ -4,9 +4,10 @@ angular.module('diretivas',[])
     ddo.restrict = "AE";
 
     ddo.scope = {
-        url: '@'
+        site: '@',
+		nome: '@'
     };
-    ddo.template = '<img class="img-responsive center-block" src="{{url}}">'
+    ddo.template = '<img class="img-responsive center-block" src="{{site}}" alt="{{nome}}>'
     return ddo;
 })
 .directive('meuPainel', function(){
@@ -16,7 +17,7 @@ angular.module('diretivas',[])
 	ddo.restric = "AE";
 
 	ddo.scope = {
-		titulo: '@'
+		nome: '@'
 	};
 
 	ddo.transclude = true;

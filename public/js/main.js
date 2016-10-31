@@ -17,9 +17,9 @@ angular
             controller: 'FrameworkController'
         });
 
-<<<<<<< HEAD
+
         $routeProvider.otherwise({redirectTo: '/'});
-=======
+
      $routeProvider.when('/livros',{
         templateUrl: 'partials/livros.html',
         controller: 'LivroController'
@@ -31,6 +31,6 @@ angular
     });
 
     $routeProvider.otherwise({redirectTo: '/framework'});
->>>>>>> e3480458082201b01abb0c149fff2ef06761beb0
+
 
     });

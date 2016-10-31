@@ -4,20 +4,20 @@
 	</div>
 </div>
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <form>
             <div class="input-group">
                 <span class="input-group-btn">
                     <a href="framework/adicionar" class="btn btn-primary">Novo Framework</a>
                 </span>
-                <input ng-model="filtro" ng-model-options="{debounce: 500}" class="form-control"  placeholder="Filtrar">
+                <input ng-model="filtro"  class="form-control"  placeholder="Filtrar">
             </div>
         </form>
     </div>
 </div>
 <div ng-controller="FrameworksController" class="row">
-    <meu-painel class="col-md-2 painel-animado" ng-repeat="framework in frameworks | filter: filtro" titulo="{{framework.nome}}">
-        <minha-foto url="{{framework.foto}}"></minha-foto>
+    <meu-painel class="col-md-2 painel-animado" ng-repeat="framework in frameworks | filter: filtro" nome="{{framework.nome}}">
+        <minha-foto site="{{framework.site}}" nome={{framework.nome}}></minha-foto>
         <a href="{{framework.site}}">{{framework.site}}</a>
         <a href="framework/atualizar/{{framework._id}}" class="btn btn-primary btn-block">Editar</a>
         <meu-botao-perigo nome="Remover" acao="remover(foto)"></meu-botao-perigo>
