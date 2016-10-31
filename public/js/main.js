@@ -13,6 +13,16 @@ angular.module('main', ['ngAnimate','ngRoute'])
         controller: 'FrameworkController'
     });
 
+     $routeProvider.when('/livros',{
+        templateUrl: 'partials/livros.html',
+        controller: 'LivroController'
+    });
+
+    $routeProvider.when('/livros/cadastrar',{
+        templateUrl: 'partials/cadastrar',
+        controller: 'LivroController'
+    });
+
     $routeProvider.otherwise({redirectTo: '/framework'});
 
 });
