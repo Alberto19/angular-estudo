@@ -31,35 +31,27 @@ angular
             controller: 'LivroController'
         });
         $routeProvider.when('/home', {templateUrl: 'partials/home/index.html'});
-<<<<<<< .mine            templateUrl: 'partials/home/index.html'
-        });
-=======>>>>>>> .theirs
-<<<<<<< .mine        $routeProvider.otherwise({ redirectTo: '/home' });
-=======        $routeProvider.otherwise({redirectTo: '/home'});
->>>>>>> .theirs
+
+        $routeProvider.otherwise({redirectTo: '/home'});
+
     });
 
-<<<<<<< .mine
-=======>>>>>>> .theirsfunction validate($scope) {
+function validate($scope) {
     createMesage($scope, alertInputNull($scope), 'warning');
     return $scope.livro.titulo && $scope.livro.imagem && $scope.livro.descricao;
 }
 
-<<<<<<< .mine
-=======>>>>>>> .theirsfunction alertInputNull($scope) {
+function alertInputNull($scope) {
     if (!$scope.livro.titulo) 
         return 'Preencher o titulo';
-<<<<<<< .mine
-=======    
->>>>>>> .theirs    if (!$scope.livro.imagem) 
-<<<<<<< .mine    if (!$scope.livro.imagem)
-=======>>>>>>> .theirs        return 'Preencher a imagem';
+    
+    if (!$scope.livro.imagem) 
+        return 'Preencher a imagem';
     
     if (!$scope.livro.descricao) 
         return 'Preencher a descricao';
-<<<<<<< .mine
-=======    
->>>>>>> .theirs    return '';
+    
+    return '';
 }
 
 function createMesage($scope, mensage, type) {
