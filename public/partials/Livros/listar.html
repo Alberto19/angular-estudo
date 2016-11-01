@@ -1,7 +1,17 @@
-<div class="row">
-	<div class="col-md-2">
-		<a href="/livros/cadastrar" class="btn btn-primary button" role="button">Novo</a>
+<div class="row ">
+	<div class="col-md-12">
+		<div ng-show="mesage" class="alert alert-{{mesage.type}} swing">{{mesage.text}}</div>
 	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-2 col-md-offset-10">
+		<a href="/livros/cadastrar" class="btn btn-primary btn-lg btn-block" role="button"><span class="glyphicon glyphicon-plus icone"></span> Novo</a>
+	</div>
+</div>
+
+<div class="clean">
 </div>
 
 <div class="row">
@@ -13,7 +23,7 @@
 				<p>{{livro.descricao}}</p>
 				<p>
 					<a href="#" class="btn btn-primary button" role="button">Editar</a>
-					<button ng-click="remove(livro)" class="btn btn-danger btn-block">Remover</button>
+					<button ng-click="remove(livro)" class="btn btn-danger button button-rigth">Remover</button>
 				</p>
 			</div>
 		</div>

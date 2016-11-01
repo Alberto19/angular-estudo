@@ -2,6 +2,11 @@ angular.module('main').controller('LivrosController', function ($scope, $http) {
 
     $scope.livros = [];
 
+      $scope.mesage = {
+        text: "",
+        type: ""
+    };
+
     $http.get('buscarLivro').success(function (response) {
         $scope.livros = response;
     }).error(function (erro) {
@@ -12,10 +17,12 @@ angular.module('main').controller('LivrosController', function ($scope, $http) {
         $http.delete('/deletarLivro/'+ livro._id)
         .success(function(){
             $scope.livros.splice($scope.livros.indexOf(livro),1);
-            $scope.mensagem = 'removido';           
+            createMesage($scope, "Removido com sucesso", "success");   
         }).error(function(erro){
-            console.log(erro);
+            createMesage($scope, "Não foi possivel remover", "warning");
         });
     };
 
 });
+
+
