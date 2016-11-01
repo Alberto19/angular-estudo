@@ -1,36 +1,48 @@
 angular.module('main').controller('LivroController', function ($scope, $http) {
-
     $scope.mesage = {
         text: "",
         type: ""
     };
 
-    $scope.livros = {};
-
-    /*$scope.livros = [{
-        titulo:"Casa Blanca",
-        descricao:"Casa pintada de blanca",
-        imagem:"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQkj9n0cpj9L5mssR72YffGaviTs_Bt7x2wVi_1CLr7AU8OI6g7hk8zoyo",    
-    }]*/
-
-    
-    $http.get('buscar').success(function(response){
-        $scope.livros = response;
-    }).error(function(erro){
-        console.log(erro);
-    }); 
-
-    $scope.submeter = function () {
-        $http.post('adicionar', $scope.livro)
-            .success(function () {                
-                $scope.mesage.text = 'Livro Adicionado com sucesso';
-                $scope.mesage.type = 'success';
+    $scope.submit = function () {
+        if (validate($scope)) {
+            $http.post('adicionar', $scope.livro).success(function () {
+                createMesage($scope, "Livro cadastrado com Sucesso", "success");
+            }).error(function (erro) {
+                createMesage($scope, "Não foi cadastrar o livro", "danger");
             })
-            .error(function (erro) {
-                $scope.mesage.text = 'Não foi possível adicionar o livro';
-                $scope.mesage.type = 'danger';
-            })
-
+        }
     }
 
 });
+
+
+function validate($scope) {
+    createMesage($scope, alertInputNull($scope), 'warning');
+    return $scope.livro.titulo && $scope.livro.imagem && $scope.livro.descricao;
+}
+
+function alertInputNull($scope) {
+    if (!$scope.livro.titulo)
+        return 'Preencher o titulo';
+
+    if (!$scope.livro.imagem)
+        return 'Preencher a imagem';
+
+    if (!$scope.livro.descricao)
+        return 'Preencher a descricao';
+        
+    return '';
+}
+
+function createMesage($scope, mensage, type) {
+    $scope.mesage.text = mensage;
+    $scope.mesage.type = type;
+    setTimeout(function () {
+        $scope.$apply(function () {
+            $scope.mesage.text = '';
+            $scope.mesage.type = '';
+        });
+    }, 2000);
+}
+
