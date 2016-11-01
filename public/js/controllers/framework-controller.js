@@ -7,7 +7,7 @@ angular
 
         if ($routeParams.frameworkId) {
             $http
-                .get('buscarPorId/' + $routeParams.frameworkId)
+                .get('buscarFrameworkId/' + $routeParams.frameworkId)
                 .success(function (framework) {
                     $scope.framework = framework;
                 })
@@ -21,7 +21,7 @@ angular
 
                 if ($scope.framework._id) {
                     $http
-                        .put('atualizar/' + $scope.framework._id, $scope.framework)
+                        .put('atualizarFramework/' + $scope.framework._id, $scope.framework)
                         .success(function () {
                             $scope.framework = {};
                             $scope.mensagem = 'Framework alterado com sucesso';

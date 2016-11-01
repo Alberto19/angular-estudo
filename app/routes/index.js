@@ -4,16 +4,15 @@ var api = require('../api'),
 module.exports  = function(app) {
     
     app.route('/adicionar').post(api.adiciona);
-    app.route('/buscar/framework').get(api.listaFramework);
-    app.route('/buscar').get(api.lista);
+    app.route('/atualizarFramework/:frameworkId').put(api.atualizaFramework);
+    app.route('/buscarFrameworkId/:frameworkId').get(api.buscaFramework)
+    app.route('/buscarFramework').get(api.listaFramework);
 
-    app.route('/deletar/:Id').delete(api.remove);
-    app.route('/buscarPorId/:Id').get(api.busca)
-    app.route('/atualizar/:frameworkId').put(api.atualiza);
 
-    app.get('/tecnologias', api.listaPorTecnologias)
-    app.get('/tecnologiasId/:Id', api.listaPorTecnologia);
-        
+    app.route('/atualizarLivro/:LivroId').put(api.atualizaLivro);
+    app.route('/buscarLivroId/:LivroId').get(api.buscaLivro)
+    app.route('/buscarLivro').get(api.listaLivro);
+  
 
     // habilitando HTML5MODE
     app.all('/*', function(req, res) {

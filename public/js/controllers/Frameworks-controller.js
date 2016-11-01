@@ -6,7 +6,7 @@ angular
         $scope.filtro = '';
 
         $http
-            .get('buscar/framework')
+            .get('buscarFramework')
             .success(function (frameworks) {
                 $scope.frameworks = frameworks;
             })
