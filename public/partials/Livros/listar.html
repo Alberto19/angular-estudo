@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-md-2">
+		<a href="/livros/cadastrar" class="btn btn-primary button" role="button">Novo</a>
+	</div>
+</div>
+
+<div class="row">
+	<div ng-repeat="livro in livros" class="col-md-3">
+		<div class="thumbnail">
+			<img src="{{livro.imagem}}" alt="{{livro.titulo}}" class="img-responsive center-block">
+			<div class="caption">
+				<h3>{{livro.titulo}}</h3>
+				<p>{{livro.descricao}}</p>
+				<p>
+					<a href="#" class="btn btn-primary button" role="button">Editar</a>
+					<button ng-click="remove(livro)" class="btn btn-danger btn-block">Remover</button>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
