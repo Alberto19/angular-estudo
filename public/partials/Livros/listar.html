@@ -1,9 +1,12 @@
+<div class="clean"></div>
+
 <div class="row ">
 	<div class="col-md-12">
-		<div ng-show="mesage" class="alert alert-{{mesage.type}} swing">{{mesage.text}}</div>
+		<div ng-show="mesage.text.length" class="alert alert-{{mesage.type}} swing">{{mesage.text}}</div>
 	</div>
 </div>
 
+<div class="clean"></div>
 
 <div class="row">
 	<div class="col-md-2 col-md-offset-10">
@@ -11,8 +14,7 @@
 	</div>
 </div>
 
-<div class="clean">
-</div>
+<div class="clean"></div>
 
 <div class="row">
 	<div ng-repeat="livro in livros" class="col-md-3">

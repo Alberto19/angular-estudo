@@ -1,12 +1,24 @@
+<div class="clean"></div>
+
 <div class="row ">
 	<div class="col-md-12">
-		<div ng-show="mesage" class="alert alert-{{mesage.type}} ">{{mesage.text}}</div>
+		<div ng-show="mesage.text.length" class="alert alert-{{mesage.type}} ">{{mesage.text}}</div>
 	</div>
 </div>
 
+<div class="clean"></div>
+
+
+<div class="row ">
+	<div class="col-md-12">
+		<h1>Crie agora um novo registro</h1>
+</div>
+
+<div class="clean"></div>
+
 <div class="row">
 	<div class="col-md-6">
-		<form name="formulario" ng-submit="submit()">
+		<form name="formulario" ng-submit="submit()" class="form">
 
 			<div class="form-group">
 				<label>Titulo</label>

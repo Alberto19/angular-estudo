@@ -18,44 +18,44 @@ angular
             templateUrl: 'partials/framework/new.html',
             controller: 'FrameworkController'
         });
-   
-//livros
+
+        //livros
 
         $routeProvider.when('/livros', {
             templateUrl: 'partials/Livros/listar.html',
             controller: 'LivrosController'
         });
-      
+
         $routeProvider.when('/livros/cadastrar', {
             templateUrl: 'partials/Livros/cadastrar.html',
             controller: 'LivroController'
         });
-      
+        $routeProvider.when('/home', {
+            templateUrl: 'partials/home/index.html'
+        });
 
-         $routeProvider.otherwise({ redirectTo: '/' });
+        $routeProvider.otherwise({ redirectTo: '/home' });
 
     });
 
-    
+
 function validate($scope) {
     createMesage($scope, alertInputNull($scope), 'warning');
     return $scope.livro.titulo && $scope.livro.imagem && $scope.livro.descricao;
 }
 
-    $routeProvider.when('/home',{
-        templateUrl: 'partials/home/index.html'
-    });
+
 function alertInputNull($scope) {
     if (!$scope.livro.titulo)
         return 'Preencher o titulo';
 
-    $routeProvider.otherwise({redirectTo: '/home'});
+
     if (!$scope.livro.imagem)
         return 'Preencher a imagem';
 
     if (!$scope.livro.descricao)
         return 'Preencher a descricao';
-        
+
     return '';
 }
 
