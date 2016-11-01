@@ -30,44 +30,46 @@ angular
             templateUrl: 'partials/Livros/cadastrar.html',
             controller: 'LivroController'
         });
-        $routeProvider.when('/home', {
-            templateUrl: 'partials/home/index.html'
+        $routeProvider.when('/home', {templateUrl: 'partials/home/index.html'});
+<<<<<<< .mine            templateUrl: 'partials/home/index.html'
         });
-
-        $routeProvider.otherwise({ redirectTo: '/home' });
-
+=======>>>>>>> .theirs
+<<<<<<< .mine        $routeProvider.otherwise({ redirectTo: '/home' });
+=======        $routeProvider.otherwise({redirectTo: '/home'});
+>>>>>>> .theirs
     });
 
-
-function validate($scope) {
+<<<<<<< .mine
+=======>>>>>>> .theirsfunction validate($scope) {
     createMesage($scope, alertInputNull($scope), 'warning');
     return $scope.livro.titulo && $scope.livro.imagem && $scope.livro.descricao;
 }
 
-
-function alertInputNull($scope) {
-    if (!$scope.livro.titulo)
+<<<<<<< .mine
+=======>>>>>>> .theirsfunction alertInputNull($scope) {
+    if (!$scope.livro.titulo) 
         return 'Preencher o titulo';
-
-
-    if (!$scope.livro.imagem)
-        return 'Preencher a imagem';
-
-    if (!$scope.livro.descricao)
+<<<<<<< .mine
+=======    
+>>>>>>> .theirs    if (!$scope.livro.imagem) 
+<<<<<<< .mine    if (!$scope.livro.imagem)
+=======>>>>>>> .theirs        return 'Preencher a imagem';
+    
+    if (!$scope.livro.descricao) 
         return 'Preencher a descricao';
-
-    return '';
+<<<<<<< .mine
+=======    
+>>>>>>> .theirs    return '';
 }
 
 function createMesage($scope, mensage, type) {
     $scope.mesage.text = mensage;
     $scope.mesage.type = type;
     setTimeout(function () {
-        $scope.$apply(function () {
-            $scope.mesage.text = '';
-            $scope.mesage.type = '';
-        });
+        $scope
+            .$apply(function () {
+                $scope.mesage.text = '';
+                $scope.mesage.type = '';
+            });
     }, 2000);
 }
-
-
