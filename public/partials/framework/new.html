@@ -4,7 +4,7 @@
 	</div>
 </div>
 
-<form novalidate name="formulario" class="row" ng-submit="submeter()">
+<form novalidate name="formulario" class="row" ng-submit="submeter()" class="form">
 	<div class="col-md-6">
 		<div class="form-group">
 			<label>Nome</label>
@@ -34,7 +34,7 @@
 		</div>
 		<input ng-model="framework.tipo" name="tipo" ng-init="framework.tipo='framework'" type="hidden">
 
-		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+		<button type="submit" class="btn btn-primary" >
             Salvar
         </button>
 		<a href="/framework" class="btn btn-primary" meu-focus>Voltar</a>

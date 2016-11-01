@@ -16,7 +16,7 @@ angular
                 })
                 .error(function (erro) {
                     $scope.mensagem.text = 'Não foi possivel obter o Framework';
-                     $scope.mensagem.type = 'danger';
+                    $scope.mensagem.type = 'danger';
                 })
         }
 
@@ -27,13 +27,18 @@ angular
                     $http
                         .put('atualizarFramework/' + $scope.framework._id, $scope.framework)
                         .success(function () {
-                            $scope.framework = {};
                             $scope.mensagem.text = 'Framework alterado com sucesso';
-                            $scope.mensagem.type = 'success'
+                            $scope.mensagem.type = 'success';
+
+                            setTimeout(function () {
+                                window.location.href = '/framework';         
+                            }, 2000);
+                            
 
                         })
                         .error(function () {
-                            $scope.mensagem = 'Não foi possível alterar o framework'
+                            $scope.mensagem.text = 'Não foi possível alterar o framework';
+                            $scope.mensagem.type = 'danger';
                         });
                 } else {
                     $http
@@ -44,7 +49,7 @@ angular
                         })
                         .error(function (erro) {
                             $scope.mensagem.text = 'Não foi possível adicionar um framework';
-                            $scope.mensagem.type = 'danger'
+                            $scope.mensagem.type = 'danger';
                         });
                 }
 
