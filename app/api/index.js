@@ -30,6 +30,14 @@ api.atualiza = function(req, res) {
 };
 
 api.lista = function(req, res) {
+    var frameworkId = parseInt(req.params.frameworkId);
+    db.find({framework: frameworkId}).exec(function(err, doc) {
+        if (err) return console.log(err);
+        res.json(doc);
+    });
+};
+
+api.listaFramework = function(req, res) {
     db.find({}).exec(function(err, doc) {
         if (err) return console.log(err);
         res.json(doc);

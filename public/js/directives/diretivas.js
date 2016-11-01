@@ -1,28 +1,18 @@
-angular.module('diretivas',[])
-.directive('minhaFoto', function(){
-    var ddo = {};
-    ddo.restrict = "AE";
+angular
+				.module('diretivas', [])
+				.directive('meuPainel', function () {
 
-    ddo.scope = {
-        site: '@',
-		nome: '@'
-    };
-    ddo.template = '<img class="img-responsive center-block" src="{{site}}" alt="{{nome}}>'
-    return ddo;
-})
-.directive('meuPainel', function(){
-	
-	var ddo = {};
+								var ddo = {};
 
-	ddo.restric = "AE";
+								ddo.restric = "AE";
 
-	ddo.scope = {
-		nome: '@'
-	};
+								ddo.scope = {
+												nome: '@'
+								};
 
-	ddo.transclude = true;
+								ddo.transclude = true;
 
-	ddo.templateUrl = 'js/directives/meu-painel.html';
+								ddo.templateUrl = 'js/directives/meu-painel.html';
 
-	return ddo;
-});
+								return ddo;
+				});

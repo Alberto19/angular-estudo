@@ -4,6 +4,7 @@ var api = require('../api'),
 module.exports  = function(app) {
     
     app.route('/adicionar').post(api.adiciona);
+    app.route('/buscar/framework').get(api.listaFramework);
     app.route('/buscar').get(api.lista);
 
     app.route('/deletar/:Id').delete(api.remove);

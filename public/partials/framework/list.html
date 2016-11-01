@@ -17,7 +17,7 @@
 </div>
 <div ng-controller="FrameworksController" class="row">
     <meu-painel class="col-md-2 painel-animado" ng-repeat="framework in frameworks | filter: filtro" nome="{{framework.nome}}">
-        <minha-foto site="{{framework.site}}" nome={{framework.nome}}></minha-foto>
+        <img class="img-responsive center-block" src="{{framework.foto}}" alt="{{framework.nome}}"/>
         <a href="{{framework.site}}">{{framework.site}}</a>
         <a href="framework/atualizar/{{framework._id}}" class="btn btn-primary btn-block">Editar</a>
         <meu-botao-perigo nome="Remover" acao="remover(foto)"></meu-botao-perigo>
