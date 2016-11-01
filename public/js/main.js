@@ -30,7 +30,11 @@ angular
         controller: 'LivroController'
     });
 
-    $routeProvider.otherwise({redirectTo: '/'});
+    $routeProvider.when('/home',{
+        templateUrl: 'partials/home/index.html'
+    });
+
+    $routeProvider.otherwise({redirectTo: '/home'});
 
 
     });
