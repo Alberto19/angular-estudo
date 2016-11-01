@@ -30,7 +30,7 @@ angular
         controller: 'LivroController'
     });
 
-    $routeProvider.otherwise({redirectTo: '/framework'});
+    $routeProvider.otherwise({redirectTo: '/'});
 
 
     });

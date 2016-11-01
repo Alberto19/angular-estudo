@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-		<div ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</div>
+		<div ng-show="mensagem.text.length" class="alert alert-{{mensagem.type}}">{{mensagem.text}}</div>
 	</div>
 </div>
 
@@ -32,7 +32,7 @@
 			<textarea ng-model="framework.descricao" name="descricao" class="form-control">
             </textarea>
 		</div>
-		<input ng-model="framework.tipo" name="tipo" value="framework"  >
+		<input ng-model="framework.tipo" name="tipo" ng-init="framework.tipo='framework'" type="hidden">
 
 		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
             Salvar

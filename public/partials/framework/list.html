@@ -1,25 +1,26 @@
 <div class="row">
 	<div class="col-md-12">
-		<div ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</div>
+		<div ng-show="mensagem.text.length" class="alert alert-{{mensagem.type}}">{{mensagem.text}}</div>
 	</div>
 </div>
 <div class="row">
     <div class="col-md-12">
         <form>
             <div class="input-group">
-                <span class="input-group-btn">
-                    <a href="framework/adicionar" class="btn btn-primary">Novo Framework</a>
-                </span>
-                <input ng-model="filtro"  class="form-control"  placeholder="Filtrar">
+                <div class="input-group-addon">
+                    <a href="framework/adicionar"  >Novo Framework</a>
+                </div>
+                <input ng-model="framework.nome"  class="form-control"  placeholder="Filtrar">
             </div>
         </form>
     </div>
 </div>
+<br>
 <div class="row">
-    <meu-painel class="col-md-2 painel-animado" ng-repeat="framework in frameworks | filter: filtro" nome="{{framework.nome}}">
+    <meu-painel class="col-md-2 painel-animado" ng-repeat="framework in frameworks | filter: framework.nome" nome="{{framework.nome}}">
         <img class="img-responsive center-block" src="{{framework.foto}}" alt="{{framework.nome}}"/>
-        <a href="{{framework.site}}">{{framework.site}}</a>
-        <a href="framework/atualizar/{{framework._id}}" class="btn btn-primary btn-block">Editar</a>
-        <meu-botao-perigo nome="Remover" acao="remover(foto)"></meu-botao-perigo>
+        <a class="btn btn-block" href="{{framework.site}}">Site</a>
+        <a href="framework/atualizar/{{framework._id}}" class="btn btn-info btn-block btn-xs">Editar</a>
+        <button ng-click="remover(framework)" class="btn btn-danger btn-block btn-xs">Remover</button>
     </meu-painel> 
 </div>
