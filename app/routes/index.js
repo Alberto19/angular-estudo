@@ -9,7 +9,7 @@ module.exports  = function(app) {
 
     app.route('/deletar/:Id').delete(api.remove);
     app.route('/buscarPorId/:Id').get(api.busca)
-    app.route('/atualizar/:Id').put(api.atualiza);
+    app.route('/atualizar/:frameworkId').put(api.atualiza);
 
     app.get('/tecnologias', api.listaPorTecnologias)
     app.get('/tecnologiasId/:Id', api.listaPorTecnologia);

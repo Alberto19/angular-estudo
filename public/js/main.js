@@ -12,7 +12,7 @@ angular
             templateUrl: 'partials/framework/new.html',
             controller: 'FrameworkController'
         });
-         $routeProvider.when('/framework/atualizar/:Id', {
+         $routeProvider.when('/framework/atualizar/:frameworkId', {
             templateUrl: 'partials/framework/new.html',
             controller: 'FrameworkController'
         });

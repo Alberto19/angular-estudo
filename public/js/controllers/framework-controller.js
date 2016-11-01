@@ -1,16 +1,27 @@
 angular
     .module('main')
-    .controller('FrameworkController', function ($scope, $http) {
+    .controller('FrameworkController', function ($scope, $http, $routeParams) {
 
         $scope.framework = {};
         $scope.mensagem = '';
+
+        if ($routeParams.frameworkId) {
+            $http
+                .get('buscarPorId/' + $routeParams.frameworkId)
+                .success(function (framework) {
+                    $scope.framework = framework;
+                })
+                .error(function (erro) {
+                    $scope.mensagem = 'Não foi possivel obter o Framework';
+                })
+        }
 
         $scope.submeter = function () {
             if ($scope.formulario.$valid) {
 
                 if ($scope.framework._id) {
                     $http
-                        .put('buscarPorId' + $scope.framework._id, $scope.framework)
+                        .put('atualizar/' + $scope.framework._id, $scope.framework)
                         .success(function () {
                             $scope.framework = {};
                             $scope.mensagem = 'Framework alterado com sucesso';

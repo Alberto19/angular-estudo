@@ -20,7 +20,7 @@ api.busca = function(req, res) {
 
 api.atualiza = function(req, res) {
     
-    db.update({_id : req.params.Id }, req.body, function(err, numReplaced) {
+    db.update({_id : req.params.frameworkId }, req.body, function(err, numReplaced) {
         if (err) return console.log(err);
         if(numReplaced) res.status(200).end();
         res.status(500).end();

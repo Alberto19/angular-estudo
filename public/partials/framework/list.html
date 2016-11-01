@@ -15,7 +15,7 @@
         </form>
     </div>
 </div>
-<div ng-controller="FrameworksController" class="row">
+<div class="row">
     <meu-painel class="col-md-2 painel-animado" ng-repeat="framework in frameworks | filter: filtro" nome="{{framework.nome}}">
         <img class="img-responsive center-block" src="{{framework.foto}}" alt="{{framework.nome}}"/>
         <a href="{{framework.site}}">{{framework.site}}</a>
