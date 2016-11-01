@@ -7,6 +7,8 @@ module.exports  = function(app) {
     app.route('/atualizarFramework/:frameworkId').put(api.atualizaFramework);
     app.route('/buscarFrameworkId/:frameworkId').get(api.buscaFramework)
     app.route('/buscarFramework').get(api.listaFramework);
+    app.route('/remover/:frameworkId').delete(api.removeFramework);
+
 
 
     app.route('/atualizarLivro/:LivroId').put(api.atualizaLivro);

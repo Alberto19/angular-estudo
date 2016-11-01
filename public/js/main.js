@@ -42,10 +42,14 @@ function validate($scope) {
     return $scope.livro.titulo && $scope.livro.imagem && $scope.livro.descricao;
 }
 
+    $routeProvider.when('/home',{
+        templateUrl: 'partials/home/index.html'
+    });
 function alertInputNull($scope) {
     if (!$scope.livro.titulo)
         return 'Preencher o titulo';
 
+    $routeProvider.otherwise({redirectTo: '/home'});
     if (!$scope.livro.imagem)
         return 'Preencher a imagem';
 
