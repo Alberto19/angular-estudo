@@ -4,33 +4,36 @@ angular
 
         $locationProvider.html5Mode(true);
 
-      $routeProvider.when('/framework', {
+        $routeProvider.when('/framework', {
             templateUrl: 'partials/framework/list.html',
             controller: 'FrameworksController'
         });
+
         $routeProvider.when('/framework/adicionar', {
             templateUrl: 'partials/framework/new.html',
             controller: 'FrameworkController'
         });
-         $routeProvider.when('/framework/atualizar/:frameworkId', {
+
+        $routeProvider.when('/framework/atualizar/:frameworkId', {
             templateUrl: 'partials/framework/new.html',
             controller: 'FrameworkController'
         });
 
+       
 
-        $routeProvider.otherwise({redirectTo: '/'});
+//livros
 
-     $routeProvider.when('/livros',{
-        templateUrl: 'partials/livros.html',
-        controller: 'LivroController'
-    });
+        $routeProvider.when('/livros', {
+            templateUrl: 'partials/Livros/listar.html',
+            controller: 'LivrosController'
+        });
+      
+        $routeProvider.when('/livros/cadastrar', {
+            templateUrl: 'partials/Livros/cadastrar.html',
+            controller: 'LivroController'
+        });
+      
 
-    $routeProvider.when('/livros/cadastrar',{
-        templateUrl: 'partials/cadastrar',
-        controller: 'LivroController'
-    });
-
-    $routeProvider.otherwise({redirectTo: '/framework'});
-
+         $routeProvider.otherwise({ redirectTo: '/' });
 
     });

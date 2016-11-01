@@ -46,6 +46,7 @@ api.removeFramework = function(req, res) {
     });
 };
 
+
 ///         Livros
 
 api.atualizaLivro = function(req, res) {
@@ -75,7 +76,6 @@ api.listaLivro = function(req, res) {
 };
 
 api.removeLivro = function(req, res) {
-
     db.remove({ _id: req.params.livroId }, {}, function (err, numRemoved) {
         if (err) return console.log(err);
         console.log('removido com sucesso');
@@ -83,9 +83,5 @@ api.removeLivro = function(req, res) {
         res.status(500).end();
     });
 };
-
-
-
-
 
 module.exports = api;

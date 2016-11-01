@@ -14,7 +14,9 @@ module.exports  = function(app) {
     app.route('/buscarLivro').get(api.listaLivro);
   
 
-    // habilitando HTML5MODE
+     app.route('/deletarLivro/:livroId').delete(api.removeLivro);
+        
+    
     app.all('/*', function(req, res) {
         res.sendFile(path.resolve('public/index.html'));
     });
