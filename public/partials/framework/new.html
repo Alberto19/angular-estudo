@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-md-12">
+		<div ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</div>
+	</div>
+</div>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Nome</label>
+			<input ng-model="framework.nome" name="nome" class="form-control" required>
+			<span ng-show="formulario.$submitted && formulario.nome.$error.required" class="form-control alert-danger">
+                Nome obrigatório
+            </span>
+		</div>
+		<div class="form-group">
+			<label>Site</label>
+			<input ng-model="framework.site" name="site" class="form-control" required>
+			<span ng-show="formulario.$submitted && formulario.site.$error.required" class="form-control alert-danger">
+                Site do Framework obrigatório
+            </span>
+		</div>
+		<div class="form-group">
+			<label>Foto URL</label>
+			<input ng-model="framework.foto" name="foto" class="form-control" required>
+			<span ng-show="formulario.$submitted && formulario.foto.$error.required" class="form-control alert-danger">
+                Foto do Framework obrigatório
+            </span>
+		</div>
+		<div class="form-group">
+			<label>Descrição</label>
+			<textarea ng-model="framework.descricao" name="descricao" class="form-control">
+            </textarea>
+		</div>
+		<input ng-model="framework.tipo" name="tipo" value="framework"  >
+
+		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+            Salvar
+        </button>
+		<a href="/framework" class="btn btn-primary" meu-focus>Voltar</a>
+		<hr>
+	</div>
+	<div class="col-md-4">
+		<img class="img-responsive center-block" src="{{framework.foto}}" alt="{{framework.nome}}"/>
+	</div>
+</form>
