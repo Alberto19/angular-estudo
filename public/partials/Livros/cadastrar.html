@@ -1,12 +1,24 @@
-<div class="row">
+<div class="clean"></div>
+
+<div class="row ">
 	<div class="col-md-12">
-		<div ng-show="mesage" class="alert alert-{{mesage.type}}">{{mesage.text}}</div>
+		<div ng-show="mesage.text.length" class="alert alert-{{mesage.type}} ">{{mesage.text}}</div>
 	</div>
 </div>
 
+<div class="clean"></div>
+
+
+<div class="row ">
+	<div class="col-md-12">
+		<h1>Crie agora um novo registro</h1>
+</div>
+
+<div class="clean"></div>
+
 <div class="row">
 	<div class="col-md-6">
-		<form name="formulario" ng-submit="submeter()">
+		<form name="formulario" ng-submit="submit()" class="form">
 
 			<div class="form-group">
 				<label>Titulo</label>
@@ -15,6 +27,7 @@
 			<div class="form-group">
 				<label>Imagem</label>
 				<input ng-model="livro.imagem" name="site" class="form-control">
+				<input name="site" ng-init="livro.tipo='livro'" type="hidden">
 			</div>
 			<div class="form-group">
 				<label>Descrição</label>
@@ -23,27 +36,22 @@
 			</div>
 
 			<button type="submit" class="btn btn-primary"> Salvar </button>
-
 			<a href="/livros" class="btn btn-primary" meu-focus>Voltar</a>
-			<hr>
-
 		</form>
 	</div>
-</div>
 
-
-<div class="row">
-	<div ng-repeat="livro in livros" class="col-md-3">
+	<div class="col-md-3 col-md-offset-3">
 		<div class="thumbnail">
 			<img src="{{livro.imagem}}" alt="{{livro.titulo}}" class="img-responsive center-block">
 			<div class="caption">
 				<h3>{{livro.titulo}}</h3>
 				<p>{{livro.descricao}}</p>
 				<p>
-					<a href="#" class="btn btn-primary button" role="button">Editar</a>
-					<a href="#" class="btn btn-default button button-rigth" role="button">Deletar</a>
+					<a href="#" class="btn btn-primary button" role="button" disabled>Editar</a>
+					<button class="btn btn-danger button button-rigth" disabled>Remover</button>
 				</p>
 			</div>
 		</div>
 	</div>
+
 </div>

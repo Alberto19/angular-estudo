@@ -7,6 +7,8 @@ module.exports  = function(app) {
     app.route('/atualizarFramework/:frameworkId').put(api.atualizaFramework);
     app.route('/buscarFrameworkId/:frameworkId').get(api.buscaFramework)
     app.route('/buscarFramework').get(api.listaFramework);
+    app.route('/remover/:frameworkId').delete(api.removeFramework);
+
 
 
     app.route('/atualizarLivro/:LivroId').put(api.atualizaLivro);
@@ -14,7 +16,9 @@ module.exports  = function(app) {
     app.route('/buscarLivro').get(api.listaLivro);
   
 
-    // habilitando HTML5MODE
+     app.route('/deletarLivro/:livroId').delete(api.removeLivro);
+        
+    
     app.all('/*', function(req, res) {
         res.sendFile(path.resolve('public/index.html'));
     });

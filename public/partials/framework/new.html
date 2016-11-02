@@ -1,10 +1,10 @@
 <div class="row">
 	<div class="col-md-12">
-		<div ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</div>
+		<div ng-show="mensagem.text.length" class="alert alert-{{mensagem.type}}">{{mensagem.text}}</div>
 	</div>
 </div>
 
-<form novalidate name="formulario" class="row" ng-submit="submeter()">
+<form novalidate name="formulario" class="row" ng-submit="submeter()" class="form">
 	<div class="col-md-6">
 		<div class="form-group">
 			<label>Nome</label>
@@ -32,9 +32,9 @@
 			<textarea ng-model="framework.descricao" name="descricao" class="form-control">
             </textarea>
 		</div>
-		<input ng-model="framework.tipo" name="tipo" value="framework"  >
+		<input ng-model="framework.tipo" name="tipo" ng-init="framework.tipo='framework'" type="hidden">
 
-		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+		<button type="submit" class="btn btn-primary" >
             Salvar
         </button>
 		<a href="/framework" class="btn btn-primary" meu-focus>Voltar</a>

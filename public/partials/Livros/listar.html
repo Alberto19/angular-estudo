@@ -1,0 +1,33 @@
+<div class="clean"></div>
+
+<div class="row ">
+	<div class="col-md-12">
+		<div ng-show="mesage.text.length" class="alert alert-{{mesage.type}} swing">{{mesage.text}}</div>
+	</div>
+</div>
+
+<div class="clean"></div>
+
+<div class="row">
+	<div class="col-md-2 col-md-offset-10">
+		<a href="/livros/cadastrar" class="btn btn-primary btn-lg btn-block" role="button"><span class="glyphicon glyphicon-plus icone"></span> Novo</a>
+	</div>
+</div>
+
+<div class="clean"></div>
+
+<div class="row">
+	<div ng-repeat="livro in livros" class="col-md-3">
+		<div class="thumbnail">
+			<img src="{{livro.imagem}}" alt="{{livro.titulo}}" class="img-responsive center-block">
+			<div class="caption">
+				<h3>{{livro.titulo}}</h3>
+				<p>{{livro.descricao}}</p>
+				<p>
+					<a href="#" class="btn btn-primary button" role="button">Editar</a>
+					<button ng-click="remove(livro)" class="btn btn-danger button button-rigth">Remover</button>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

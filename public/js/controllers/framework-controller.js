@@ -3,7 +3,10 @@ angular
     .controller('FrameworkController', function ($scope, $http, $routeParams) {
 
         $scope.framework = {};
-        $scope.mensagem = '';
+        $scope.mensagem = {
+            text: '',
+            type: ''
+        };
 
         if ($routeParams.frameworkId) {
             $http
@@ -12,7 +15,8 @@ angular
                     $scope.framework = framework;
                 })
                 .error(function (erro) {
-                    $scope.mensagem = 'Não foi possivel obter o Framework';
+                    $scope.mensagem.text = 'Não foi possivel obter o Framework';
+                    $scope.mensagem.type = 'danger';
                 })
         }
 
@@ -23,20 +27,29 @@ angular
                     $http
                         .put('atualizarFramework/' + $scope.framework._id, $scope.framework)
                         .success(function () {
-                            $scope.framework = {};
-                            $scope.mensagem = 'Framework alterado com sucesso';
+                            $scope.mensagem.text = 'Framework alterado com sucesso';
+                            $scope.mensagem.type = 'success';
+
+                            setTimeout(function () {
+                                window.location.href = '/framework';         
+                            }, 2000);
+                            
+
                         })
                         .error(function () {
-                            $scope.mensagem = 'Não foi possível alterar o framework'
+                            $scope.mensagem.text = 'Não foi possível alterar o framework';
+                            $scope.mensagem.type = 'danger';
                         });
                 } else {
                     $http
                         .post('adicionar', $scope.framework)
                         .success(function (framework) {
-                            $scope.mensagem = 'Framework Adicionado com sucesso';
+                            $scope.mensagem.text = 'Framework Adicionado com sucesso';
+                            $scope.mensagem.type = 'success'
                         })
                         .error(function (erro) {
-                            $scope.mensagem = 'Não foi possível adicionar um framework';
+                            $scope.mensagem.text = 'Não foi possível adicionar um framework';
+                            $scope.mensagem.type = 'danger';
                         });
                 }
 
