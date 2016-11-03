@@ -30,9 +30,15 @@ angular
             templateUrl: 'partials/Livros/cadastrar.html',
             controller: 'LivroController'
         });
-        $routeProvider.when('/home', {templateUrl: 'partials/home/index.html'});
 
-        $routeProvider.otherwise({redirectTo: '/home'});
+        $routeProvider.when('/livros/atualizar/:livroId', {
+            templateUrl: 'partials/Livros/cadastrar.html',
+            controller: 'LivroController'
+        });
+
+        $routeProvider.when('/home', { templateUrl: 'partials/home/index.html' });
+
+        $routeProvider.otherwise({ redirectTo: '/home' });
 
     });
 
@@ -42,26 +48,31 @@ function validate($scope) {
 }
 
 function alertInputNull($scope) {
-    if (!$scope.livro.titulo) 
+    if (!$scope.livro.titulo)
         return 'Preencher o titulo';
-    
-    if (!$scope.livro.imagem) 
+
+    if (!$scope.livro.imagem)
         return 'Preencher a imagem';
-    
-    if (!$scope.livro.descricao) 
+
+    if (!$scope.livro.descricao)
         return 'Preencher a descricao';
-    
     return '';
 }
 
 function createMesage($scope, mensage, type) {
+    setValueScopeMesage($scope);
+
     $scope.mesage.text = mensage;
     $scope.mesage.type = type;
     setTimeout(function () {
         $scope
             .$apply(function () {
-                $scope.mesage.text = '';
-                $scope.mesage.type = '';
+                setValueScopeMesage($scope);
             });
     }, 2000);
+}
+
+function setValueScopeMesage($scope) {
+    $scope.mesage.text = '';
+    $scope.mesage.type = '';
 }

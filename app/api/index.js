@@ -49,8 +49,7 @@ api.removeFramework = function(req, res) {
 
 ///         Livros
 
-api.atualizaLivro = function(req, res) {
-    
+api.atualizaLivro = function(req, res) {    
     db.update({_id : req.params.livroId }, req.body, function(err, numReplaced) {
         if (err) return console.log(err);
         if(numReplaced) res.status(200).end();

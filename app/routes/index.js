@@ -4,15 +4,14 @@ var api = require('../api'),
 module.exports  = function(app) {
     
     app.route('/adicionar').post(api.adiciona);
+
     app.route('/atualizarFramework/:frameworkId').put(api.atualizaFramework);
     app.route('/buscarFrameworkId/:frameworkId').get(api.buscaFramework)
     app.route('/buscarFramework').get(api.listaFramework);
     app.route('/remover/:frameworkId').delete(api.removeFramework);
 
-
-
-    app.route('/atualizarLivro/:LivroId').put(api.atualizaLivro);
-    app.route('/buscarLivroId/:LivroId').get(api.buscaLivro)
+    app.route('/atualizarLivro/:livroId').put(api.atualizaLivro);
+    app.route('/buscarLivroId/:livroId').get(api.buscaLivro)
     app.route('/buscarLivro').get(api.listaLivro);
   
 

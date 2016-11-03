@@ -1,7 +1,7 @@
 angular.module('main').controller('LivrosController', function ($scope, $http) {
 
     $scope.livros = [];
-
+    
       $scope.mesage = {
         text: "",
         type: ""
